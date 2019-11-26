@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: studentModule
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/ws
+        - id: consumerModule
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/hello/hello_world/**
+
+server:
+  port: 8080
